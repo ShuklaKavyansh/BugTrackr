@@ -29,5 +29,16 @@ def delete_bug(bug_id):
     bugs = [bug for bug in bugs if bug["id"] != bug_id]
     return jsonify({"message": "Bug deleted"}), 200
 
+@app.route("/bugs/<bug_id>", methods=["PUT"])
+def update_bug(bug_id):
+    data = request.get_json()
+    for bug in bugs:
+        if bug["id"] == bug_id:
+            bug["title"] = data.get("title", bug["title"])
+            bug["description"] = data.get("description", bug["description"])
+            bug["status"] = data.get("status", bug["status"])
+            return jsonify(bug), 200
+    return jsonify({"message": "Bug not found"}), 404
+
 if __name__ == "__main__":
     app.run(debug=True)

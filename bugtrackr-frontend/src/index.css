@@ -1,13 +1,9 @@
+@import "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css";
 
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
-
-/* Optional: Smooth transitions */
-* {
-  transition: all 0.2s ease-in-out;
-}
-
